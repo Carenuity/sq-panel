@@ -1,4 +1,14 @@
-:root {
+@import url('../utils/vendor/bootstrap/css/bootstrap.min.css');
+@import url('../utils/vendor/bootstrap-icons/bootstrap-icons.css');
+@import url('../utils/vendor/boxicons/css/boxicons.min.css');
+@import url('../utils/vendor/quill/quill.snow.css');
+@import url('../utils/vendor/quill/quill.bubble.css');
+@import url('../utils/vendor/remixicon/remixicon.css');
+@import url('../utils/vendor/simple-datatables/style.css');
+
+@import url('./scss/style.css');
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +114,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
