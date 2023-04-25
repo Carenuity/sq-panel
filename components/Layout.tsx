@@ -3,6 +3,7 @@ import React from 'react'
 import Footer from './Footer';
 import Header from './Header';
 import Sidebar from './Sidebar';
+import { url } from 'inspector';
 
 const Layout = ({ children }: { children: any }) => {
   return (
@@ -15,10 +16,14 @@ const Layout = ({ children }: { children: any }) => {
       {!children.props.auth && <Sidebar />}
       {/* <!-- End Sidebar--> */}
 
-      {children.props.auth && <main>{children}</main>}
+      {children.props.auth && <main style={{
+        backgroundImage: `url(assets/img/banner.jpg)`, 
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+        }}>{children}</main>}
 
       {!children.props.auth && (
-        <main id='main' className='main'>
+        <main id='main' className='main' style={{minHeight: '90vh'}}>
           {children}
         </main>
       )}
