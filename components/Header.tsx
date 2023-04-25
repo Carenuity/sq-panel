@@ -55,7 +55,7 @@ const Header = () => {
                 data-bs-toggle='dropdown'
               >
                 <i className='bi bi-bell'></i>
-                <span className='badge bg-primary badge-number'>4</span>
+                <span className='badge bg-info badge-number'>4</span>
               </a>
               {/* <!-- End Notification Icon --> */}
 
@@ -63,7 +63,7 @@ const Header = () => {
                 <li className='dropdown-header'>
                   You have 4 new notifications
                   <a href='#'>
-                    <span className='badge rounded-pill bg-primary p-2 ms-2'>
+                    <span className='badge rounded-pill bg-success p-2 ms-2'>
                       View all
                     </span>
                   </a>

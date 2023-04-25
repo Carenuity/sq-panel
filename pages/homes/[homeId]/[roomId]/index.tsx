@@ -4,58 +4,53 @@ import PageTitle from '../../../../components/PageTitle';
 import { useRouter } from 'next/router';
 
 const Devices = () => {
- const router = useRouter();
- const {homeId, roomId} = router.query;
+  const router = useRouter();
+  const { homeId, roomId } = router.query;
 
   return (
     <>
+      <PageTitle
+        title='Bedroom Devices'
+        path={[
+          { url: '/homes', name: 'My Homes' },
+          { url: `/homes/${homeId}`, name: `Apartment ${homeId}` },
+          { url: `/homes/${homeId}/${roomId}`, name: 'Bedroom' },
+        ]}
+      />
+      {/* End Page Title */}
       <section className='section dashboard'>
         <div className='row'>
-          <div className='col-lg-12'>
-            <PageTitle
-              title='Bedroom Devices'
-              path={[
-                { url: '/homes', name: 'My Homes' },
-                { url: `/homes/${homeId}`, name: `Apartment ${homeId}` },
-                { url: `/homes/${homeId}/${roomId}`, name: 'Bedroom' },
-              ]}
+          <div className='col-xxl-4 col-md-4'>
+            <DeviceListItem
+              name={'Pressure Sensor'}
+              gateway={'NN'}
+              detailsUrl={`/homes/${homeId}/${roomId}/1`}
             />
-            {/* End Page Title */}
-            <div className='row'>
-              <div className='col-xxl-4 col-md-4'>
-                <DeviceListItem
-                  name={'BMP180'}
-                  gateway={'NN'}
-                  detailsUrl={`/homes/${homeId}/${roomId}/1`}
-                />
-              </div>
-
-              <div className='col-xxl-4 col-md-4'>
-                <DeviceListItem
-                  name={'DHT11'}
-                  gateway={'NN'}
-                  detailsUrl={`/homes/${homeId}/${roomId}/2`}
-                />
-              </div>
-
-              <div className='col-xxl-4 col-md-4'>
-                <DeviceListItem
-                  name={'DHT22'}
-                  gateway={'NN'}
-                  detailsUrl={`/homes/${homeId}/${roomId}/3`}
-                />
-              </div>
-
-              <div className='col-xxl-4 col-md-4'>
-                <DeviceListItem
-                  name={'Ambient Light'}
-                  gateway={'HG'}
-                  detailsUrl={`/homes/${homeId}/${roomId}/4`}
-                />
-              </div>
-            </div>
           </div>
-          <div className='col-lg-4'></div>
+
+          <div className='col-xxl-4 col-md-4'>
+            <DeviceListItem
+              name={'Humidity Sensor'}
+              gateway={'NN'}
+              detailsUrl={`/homes/${homeId}/${roomId}/2`}
+            />
+          </div>
+
+          <div className='col-xxl-4 col-md-4'>
+            <DeviceListItem
+              name={'Temperator Sensor'}
+              gateway={'NN'}
+              detailsUrl={`/homes/${homeId}/${roomId}/3`}
+            />
+          </div>
+
+          <div className='col-xxl-4 col-md-4'>
+            <DeviceListItem
+              name={'Light Sensor'}
+              gateway={'HG'}
+              detailsUrl={`/homes/${homeId}/${roomId}/4`}
+            />
+          </div>
         </div>
       </section>
     </>

@@ -16,14 +16,29 @@ const Layout = ({ children }: { children: any }) => {
       {!children.props.auth && <Sidebar />}
       {/* <!-- End Sidebar--> */}
 
-      {children.props.auth && <main style={{
-        backgroundImage: `url(assets/img/banner.jpg)`, 
-        backgroundSize: 'cover',
-        backgroundAttachment: 'fixed',
-        }}>{children}</main>}
+      {children.props.auth && (
+        <main
+          style={{
+            backgroundImage: `url(/assets/img/banner.jpg)`,
+            backgroundSize: 'cover',
+            backgroundAttachment: 'fixed',
+          }}
+        >
+          {children}
+        </main>
+      )}
 
       {!children.props.auth && (
-        <main id='main' className='main' style={{minHeight: '90vh'}}>
+        <main
+          id='main'
+          className='main'
+          style={{
+            minHeight: '90vh',
+            backgroundImage: `linear-gradient(to bottom right, rgb(202,230,212), #ffffff)`,
+            backgroundSize: 'cover',
+            backgroundAttachment: 'fixed',
+          }}
+        >
           {children}
         </main>
       )}

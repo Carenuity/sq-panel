@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserName } from '../utils/types';
+import Link from 'next/link';
 
 const ProfileDropdown = ({
   image,
@@ -38,26 +39,26 @@ const ProfileDropdown = ({
         </li>
 
         <li>
-          <a
+          <Link
             className='dropdown-item d-flex align-items-center'
-            href='users-profile.html'
+            href='/profile'
           >
             <i className='bi bi-person'></i>
             <span>My Profile</span>
-          </a>
+          </Link>
         </li>
         <li>
           <hr className='dropdown-divider' />
         </li>
 
         <li>
-          <a
+          <Link
             className='dropdown-item d-flex align-items-center'
-            href='users-profile.html'
+            href='/settings'
           >
             <i className='bi bi-gear'></i>
             <span>Settings</span>
-          </a>
+          </Link>
         </li>
         <li>
           <hr className='dropdown-divider' />

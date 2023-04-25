@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import React from 'react';
 import { PagePath } from '../utils/types';
+import Head from 'next/head';
 
 const PageTitle = ({ path, title }: { path: PagePath[]; title: string; }) => {
   return (
     <>
+    <Head>
+      <title>{title}</title>
+    </Head>
       <div className='pagetitle'>
         <h1>{title}</h1>
         <nav>

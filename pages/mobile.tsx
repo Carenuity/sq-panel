@@ -4,17 +4,15 @@ import PageTitle from '../components/PageTitle';
 const mobile = () => {
   return (
     <>
+      <PageTitle
+        title='Mobile App'
+        path={[{ url: '/', name: 'Dashboard' }, { url: '/mobile', name: 'Mobile App' }]}
+      />
       <section className='section dashboard'>
         <div className='row'>
           <div className='col-lg-12'>
-            <PageTitle
-              title='Mobile App'
-              path={[{ url: '/mobile', name: 'Mobile App' }]}
-            />
-          </div>
-          <div className='col-lg-12'>
             <div
-              className='card' 
+              className='card'
               style={{
                 height: '100vh',
                 width: '90vw',
