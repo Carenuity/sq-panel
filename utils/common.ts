@@ -1,4 +1,4 @@
-import { ChartState, Threshold } from '../../types';
+import { ChartState, Threshold } from "./types";
 
 // Current reading Component functions
 export const updateThreshold = (threshold: Threshold): boolean => {
@@ -175,4 +175,11 @@ export const graphConfig = ({
     selection: 'one_year',
   };
   return state;
+};
+
+export const handleMediaQuery = (match: boolean, cn: Function) => {
+  if (match) {
+    cn(match);
+  }
+  // console.log(match);
 };

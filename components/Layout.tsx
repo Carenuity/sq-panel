@@ -1,15 +1,27 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import Sidebar from './Sidebar';
-import { url } from 'inspector';
+import { handleMediaQuery } from '../utils/common';
 
 const Layout = ({ children }: { children: any }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (document !== undefined) {
+      const mediaQuery = window.matchMedia('(max-width: 768px)');
+      mediaQuery.addEventListener('change', (e: MediaQueryListEvent) =>
+        handleMediaQuery(e.matches, setIsMobile)
+      );
+      handleMediaQuery(mediaQuery.matches, setIsMobile);
+    }
+  }, []);
+
   return (
     <>
       {/* <!-- ======= Header ======= --> */}
-      {!children.props.auth && <Header />}
+      {!children.props.auth && <Header isMobile={isMobile} />}
       {/* <!-- End Header --> */}
 
       {/* <!-- ======= Sidebar ======= --> */}
@@ -58,4 +70,4 @@ const Layout = ({ children }: { children: any }) => {
   );
 };
 
-export default Layout
+export default Layout;

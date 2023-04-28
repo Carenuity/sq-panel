@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Threshold } from '../utils/types';
-import { updateThreshold } from '../utils/js/common';
+import { updateThreshold } from '../utils/common';
 
 const CurrentReading = ({
   threshold,

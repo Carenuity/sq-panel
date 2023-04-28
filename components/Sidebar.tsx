@@ -23,6 +23,14 @@ const Sidebar = () => {
           {/* <!-- End My Homes Nav --> */}
 
           <li className='nav-item'>
+            <Link className='nav-link collapsed' href='/gateways'>
+              <i className='bi bi-diagram-3-fill'></i>
+              <span>Gateways</span>
+            </Link>
+          </li>
+          {/* <!-- End Gateways Nav --> */}
+
+          <li className='nav-item'>
             <a
               className='nav-link collapsed'
               href='https://www.chipglobe.shop/'

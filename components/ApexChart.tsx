@@ -2,7 +2,7 @@ import { ApexOptions } from 'apexcharts';
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ChartState, Threshold } from '../utils/types';
-import { graphConfig, updateData } from '../utils/js/common';
+import { graphConfig, updateData } from '../utils/common';
 
 const ApexChart = ({
   threshold,

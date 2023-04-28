@@ -1,9 +1,11 @@
-import React from 'react'
-import logo from '../public/assets/img/logo.png';
-import Image from 'next/image';
+import React, {  } from 'react';
 import ProfileDropdown from './ProfileDropdown';
+import Alerts from './Alerts';
+import { notifications } from '../utils/constants';
 
-const Header = () => {
+
+const Header = ({ isMobile }: { isMobile: boolean }) => {
+  
   return (
     <>
       <header
@@ -11,9 +13,20 @@ const Header = () => {
         className='header fixed-top d-flex align-items-center'
       >
         <div className='d-flex align-items-center justify-content-between'>
-          <a href='http://carenuity.com' className='logo d-flex align-items-center'>
-            <Image src={logo} alt='Carenuity' />
-            <span className='d-none d-lg-block'>Carenuity</span>
+          <a
+            href='http://carenuity.com'
+            className='logo d-flex align-items-center'
+          >
+            {isMobile && (
+              <img
+                src={'/assets/img/logos/android-chrome-192x192.png'}
+                alt='Carenuity'
+              />
+            )}
+            {!isMobile && (
+              <img src={'/assets/img/logos/logo-white.svg'} alt='Carenuity' />
+            )}
+            {/* <span className='d-none d-lg-block'>Carenuity</span> */}
           </a>
           <i className='bi bi-list toggle-sidebar-btn'></i>
         </div>
@@ -59,80 +72,17 @@ const Header = () => {
               </a>
               {/* <!-- End Notification Icon --> */}
 
-              <ul className='dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications'>
-                <li className='dropdown-header'>
-                  You have 4 new notifications
-                  <a href='#'>
-                    <span className='badge rounded-pill bg-success p-2 ms-2'>
-                      View all
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-
-                <li className='notification-item'>
-                  <i className='bi bi-exclamation-circle text-warning'></i>
-                  <div>
-                    <h4>Lorem Ipsum</h4>
-                    <p>Quae dolorem earum veritatis oditseno</p>
-                    <p>30 min. ago</p>
-                  </div>
-                </li>
-
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-
-                <li className='notification-item'>
-                  <i className='bi bi-x-circle text-danger'></i>
-                  <div>
-                    <h4>Atque rerum nesciunt</h4>
-                    <p>Quae dolorem earum veritatis oditseno</p>
-                    <p>1 hr. ago</p>
-                  </div>
-                </li>
-
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-
-                <li className='notification-item'>
-                  <i className='bi bi-check-circle text-success'></i>
-                  <div>
-                    <h4>Sit rerum fuga</h4>
-                    <p>Quae dolorem earum veritatis oditseno</p>
-                    <p>2 hrs. ago</p>
-                  </div>
-                </li>
-
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-
-                <li className='notification-item'>
-                  <i className='bi bi-info-circle text-primary'></i>
-                  <div>
-                    <h4>Dicta reprehenderit</h4>
-                    <p>Quae dolorem earum veritatis oditseno</p>
-                    <p>4 hrs. ago</p>
-                  </div>
-                </li>
-
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-                <li className='dropdown-footer'>
-                  <a href='#'>Show all notifications</a>
-                </li>
-              </ul>
+              <Alerts alerts={notifications} />
               {/* <!-- End Notification Dropdown Items --> */}
             </li>
             {/* <!-- End Notification Nav --> */}
 
             <li className='nav-item dropdown pe-3'>
-              <ProfileDropdown image={'/assets/img/profile-avatar.png'} name={{firstName: 'Paul', lastName: 'Otieno'}} email={'abc@gmail.com'} />
+              <ProfileDropdown
+                image={'/assets/img/profile-avatar.png'}
+                name={{ firstName: 'Paul', lastName: 'Otieno' }}
+                email={'abc@gmail.com'}
+              />
             </li>
             {/* <!-- End Profile Nav --> */}
           </ul>
@@ -141,6 +91,6 @@ const Header = () => {
       </header>
     </>
   );
-}
+};
 
-export default Header
+export default Header;

@@ -21,3 +21,10 @@ export interface ChartState {
   options: ApexOptions;
   selection: string;
 }
+
+export interface Alert {
+  id: string;
+  name: string;
+  description: string;
+  date: string;
+}
