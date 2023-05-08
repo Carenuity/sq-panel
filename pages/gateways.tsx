@@ -1,7 +1,32 @@
 import React from 'react';
 import PageTitle from '../components/PageTitle';
 import Head from 'next/head';
-import GatewayItem from '../components/GatewayItem';
+import dynamic from 'next/dynamic';
+
+const GatewayItem = dynamic(() => import('../components/GatewayItem'), {
+  ssr: false,
+  loading: () => (
+    <tr>
+      <th scope='row '>{'Loading..'}</th>
+      <td className='text-nowrap'>{'Loading..'}</td>
+      <td className='text-nowrap'>{'Loading..'}</td>
+      <td className='text-nowrap'>{'Loading..'} Hz</td>
+      <td className='text-nowrap'>{'Loading..'}</td>
+      <td className='d-flex justify-content-center align-items-center'>
+        <button className='btn btn-sm btn-white mx-2'>
+          <i className='bi bi-trash-fill text-danger'></i>
+        </button>
+        <button
+          className='btn btn-sm btn-white'
+          data-bs-toggle='modal'
+          data-bs-target='#verticalycentered'
+        >
+          <i className='bi bi-three-dots-vertical text danger'></i>
+        </button>
+      </td>
+    </tr>
+  ),
+});
 
 const Gateways = () => {
   return (

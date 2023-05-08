@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { createPortal } from 'react-dom';
+import GatewayModal from './GatewayModal';
 
 const GatewayItem = ({
   index,
@@ -25,13 +27,21 @@ const GatewayItem = ({
           <button className='btn btn-sm btn-white mx-2'>
             <i className='bi bi-trash-fill text-danger'></i>
           </button>
-          <button className='btn btn-sm btn-white'>
+          <button
+            className='btn btn-sm btn-white'
+            data-bs-toggle='modal'
+            data-bs-target='#verticalycentered'
+          >
             <i className='bi bi-three-dots-vertical text danger'></i>
           </button>
+          {createPortal(
+            <GatewayModal id={'verticalycentered'} name={'NN'} home={'Apartment'} />,
+            document.body
+          )}
         </td>
       </tr>
     </>
   );
 };
 
-export default GatewayItem
+export default GatewayItem;

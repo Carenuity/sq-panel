@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import logo from '../public/assets/img/logo.png';
+import logo from '../public/assets/img/logos/logo-white.svg';
 import { GetStaticProps } from 'next';
 import Logo from '../components/Logo';
 

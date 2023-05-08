@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import Modal from './Modal';
+import GraphModal from './GraphModal';
 import dynamic from 'next/dynamic';
 
 // const Modal = dynamic(() => import('./Modal'), {
@@ -36,7 +36,7 @@ const ListGroupItem = ({
         <span className='badge bg-secondary rounded-pill'>{reading}</span>
       </button>
       {window.document && createPortal(
-        <Modal
+        <GraphModal
           id={modalId}
           deviceName={deviceName}
           measurement={measurement}
